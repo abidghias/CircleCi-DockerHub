@@ -9,16 +9,18 @@ from flask import Flask
 from wsgiref import simple_server
 
 from flask import Flask, session, request, Response, jsonify
-
+from flask_cors import CORS,cross_origin
 
 
 import atexit
 import uuid
 import os
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/', methods=['GET', 'POST'])
+@cross_origin()
 def index():
     return "Flask app is running with a few changes "
 
