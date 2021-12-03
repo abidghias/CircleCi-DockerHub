@@ -22,12 +22,12 @@ app = Flask(__name__)
 def index():
     return "Flask app is running with a few changes "
 
-port = int(os.getenv("PORT", 5001))
+#port = int(os.getenv("PORT", 5001))
 
 if __name__ == "__main__":
     host = '0.0.0.0'
     app.run(debug=True)
-    httpd = simple_server.make_server(host=host, port=port, app=app)
+    httpd = simple_server.make_server(host=host, app=app)
     #httpd = simple_server.make_server(host='127.0.0.1', port=5000, app=app)
-    print("Serving on %s %d" % (host, port))
+    print("Serving on %s %d" % (host))
     httpd.serve_forever()
